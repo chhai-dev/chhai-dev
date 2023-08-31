@@ -180,7 +180,7 @@ title  Microsoft License Activation Tools
 mode 76, 30
 set "mastemp=%SystemRoot%\Temp\__MAS"
 if exist "%mastemp%\.*" rmdir /s /q "%mastemp%\" %nul%
-start https://chhai-developer.github.io & goto :MainMenu
+
 echo:
 echo:
 echo:       ______________________________________________________________
