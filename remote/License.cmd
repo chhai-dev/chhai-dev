@@ -194,6 +194,7 @@ echo:             [3] License Status
 echo:             [4] Window Troubleshoot
 echo:             [5] WP Injector - Wifi Passwords Injector
 echo:             [6] Contact to developer
+echo:             [7] IDM Activation
 echo:             [0] Exit the tools
 echo:       ______________________________________________________________
 echo:
@@ -204,7 +205,7 @@ echo:
 call :_color2 %_White% "            " %_Green% "Enter a menu option in the Keyboard [1,2,3,4,5,0] :"
 choice /C:1234567890 /N
 set _erl=%errorlevel%
-
+if %_erl%==7 setlocal & call :idm               & cls & endlocal & goto :MainMenu
 if %_erl%==6 start https://chhai-developer.github.io & goto :MainMenu
 if %_erl%==5 setlocal & call :wps               & cls & endlocal & goto :MainMenu
 if %_erl%==4 setlocal & call :troubleshoot      & cls & endlocal & goto :MainMenu
