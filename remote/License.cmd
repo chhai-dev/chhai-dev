@@ -194,7 +194,6 @@ echo:             [3] License Status
 echo:             [4] Window Troubleshoot
 echo:             [5] WP Injector - Wifi Passwords Injector
 echo:             [6] Contact to developer
-echo:             [7] IDM Activation
 echo:             [0] Exit the tools
 echo:       ______________________________________________________________
 echo:
